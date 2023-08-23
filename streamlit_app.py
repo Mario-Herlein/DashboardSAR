@@ -72,9 +72,6 @@ start_date = st.date_input("Fecha de inicio", df['Fecha'].min())
 end_date = st.date_input("Fecha de fin", df['Fecha'].max())
 filtered_data = df[(df['Fecha'] >= start_date) & (df['Fecha'] <= end_date)]
 
-# Mostrar mapa
-st.map(filtered_data)
-
 # Gráficos
 
 # ... [tu código anterior]
