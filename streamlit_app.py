@@ -1,3 +1,4 @@
+from datetime import datetime
 import streamlit as st
 import pandas as pd
 import io
@@ -64,6 +65,8 @@ df = pd.read_csv(io.StringIO(data), delimiter=',')
 st.title('Dashboard SAR')
 
 # Filtro de fechas
+df['Fecha'] = pd.to_datetime(df['Fecha']).dt.date
+
 start_date = st.date_input("Fecha de inicio", df['Fecha'].min())
 end_date = st.date_input("Fecha de fin", df['Fecha'].max())
 filtered_data = df[(df['Fecha'] >= start_date) & (df['Fecha'] <= end_date)]
