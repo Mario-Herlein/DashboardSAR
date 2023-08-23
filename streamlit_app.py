@@ -80,7 +80,8 @@ st.map(filtered_data)
 # ... [tu código anterior]
 
 # Crear columnas
-col1, col_map, col2 = st.beta_columns([1,2,1])
+col1, col_map, col2 = st.columns([1,2,1])
+
 
 # Mostrar mapa en la columna del medio
 with col_map:
