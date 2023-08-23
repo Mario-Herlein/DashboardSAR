@@ -65,7 +65,8 @@ df = pd.read_csv(io.StringIO(data), delimiter=',')
 st.title('Dashboard SAR')
 
 # Filtro de fechas
-df['Fecha'] = pd.to_datetime(df['Fecha']).dt.date
+df['Fecha'] = pd.to_datetime(df['Fecha'], format='%d/%m/%Y').dt.date
+
 
 start_date = st.date_input("Fecha de inicio", df['Fecha'].min())
 end_date = st.date_input("Fecha de fin", df['Fecha'].max())
