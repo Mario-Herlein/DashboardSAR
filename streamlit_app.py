@@ -77,20 +77,36 @@ st.map(filtered_data)
 
 # Gráficos
 
-# Casos SAR según bandera
-st.subheader('Casos SAR según bandera')
-sar_bandera = filtered_data['Bandera'].value_counts()
-st.bar_chart(sar_bandera)
+# ... [tu código anterior]
 
-# Tipo de Incidente
-st.subheader('Tipo de Incidente')
-incidente_tipo = filtered_data['Tipo Incidente'].value_counts()
-st.bar_chart(incidente_tipo)
+# Crear columnas
+col1, col_map, col2 = st.beta_columns([1,2,1])
 
-# Casos por Centro SAR
-st.subheader('Casos por Centro SAR')
-centro_sar = filtered_data['Centro SAR'].value_counts()
-st.bar_chart(centro_sar)
+# Mostrar mapa en la columna del medio
+with col_map:
+    st.map(filtered_data)
+
+# Gráficos en las columnas laterales
+
+# Casos SAR según bandera en la columna izquierda
+with col1:
+    st.subheader('Casos SAR según bandera')
+    sar_bandera = filtered_data['Bandera'].value_counts()
+    st.bar_chart(sar_bandera)
+
+    # Tipo de Incidente en la columna izquierda debajo del gráfico anterior
+    st.subheader('Tipo de Incidente')
+    incidente_tipo = filtered_data['Tipo Incidente'].value_counts()
+    st.bar_chart(incidente_tipo)
+
+# Casos por Centro SAR en la columna derecha
+with col2:
+    st.subheader('Casos por Centro SAR')
+    centro_sar = filtered_data['Centro SAR'].value_counts()
+    st.bar_chart(centro_sar)
+
+# ... [resto de tu código]
+
 
 # Ejecuta el dashboard con: streamlit run dashboard.py
 
